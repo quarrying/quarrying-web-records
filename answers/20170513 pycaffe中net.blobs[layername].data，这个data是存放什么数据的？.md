@@ -5,8 +5,7 @@
 [comment]: <> (Author Name: 采石工)
 [comment]: <> (Create Time: 2017-05-13 02:55:15)
 
-`net.blobs` 的类型是 `collections.OrderedDict`（即有序字典），字典的值类型为
-`caffe._caffe.Blob`，`caffe._caffe.Blob` 的 `data` 属性类型是 `numpy.ndarray`。
+`net.blobs` 的类型是 `collections.OrderedDict`（即有序字典），字典的值类型为 `caffe._caffe.Blob`，`caffe._caffe.Blob` 的 `data` 属性类型是 `numpy.ndarray`。
 
 在 Caffe 的 `python/caffe/_caffe.cpp` 文件中：
 ```c++

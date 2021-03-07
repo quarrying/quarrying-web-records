@@ -1,7 +1,7 @@
 #! https://www.zhihu.com/question/403268066/answer/1301103401
 
 [comment]: <> (Answer URL: https://www.zhihu.com/question/403268066/answer/1301103401)
-[comment]: <> (Question Title: 为什么 总平方和(SST)=残差平方和(SSE)+回归平方和(SSR) ?)
+[comment]: <> (Question Title: 为什么 总平方和\(SST\)=残差平方和\(SSE\)+回归平方和\(SSR\) ?)
 [comment]: <> (Author Name: 采石工)
 [comment]: <> (Create Time: 2020-06-25 01:04:57)
 
@@ -18,14 +18,11 @@ squares (RSS) 亦被称为 the sum of squared errors of prediction (SSE).
 $ESS = \left\| {\hat {\vec y} - \bar y\vec 1} \right\|_2^2$  . Explained sum
 of squares (ESS) 亦被称为 the sum of squares due to regression (SSR).
 
-$$\begin{aligned} TSS &= \left\| {\vec y - \bar y\vec 1} \right\|_2^2 =
-\left\| {\vec y - \hat {\vec y} + \hat {\vec y} - \bar y\vec 1} \right\|_2^2
-\\\ &= \left\| {\vec y - \hat {\vec y}} \right\|_2^2 + \left\| {\hat {\vec y}
-- \bar y\vec 1} \right\|_2^2 + 2\left\langle {\vec y - \hat {\vec y},\hat
-{\vec y} - \bar y\vec 1} \right\rangle \\\ &= RSS + ESS + 2\left\langle {\vec
-y - \hat {\vec y},\hat {\vec y} - \bar y\vec 1} \right\rangle \\\ &= RSS + ESS
-+ 2\left( {{{\vec y}^T}\hat {\vec y} - {{\hat {\vec y}}^T}\hat {\vec y} - \bar
-y\left( {{{\vec y}^T}\vec 1 - {{\hat {\vec y}}^T}\vec 1} \right)} \right) \\\
+$$\begin{aligned} TSS 
+&= \left\| {\vec y - \bar y\vec 1} \right\|_2^2 = \left\| {\vec y - \hat {\vec y} + \hat {\vec y} - \bar y\vec 1} \right\|_2^2 \\
+&= \left\| {\vec y - \hat {\vec y}} \right\|_2^2 + \left\| {\hat {\vec y} - \bar y\vec 1} \right\|_2^2 + 2\left\langle {\vec y - \hat {\vec y},\hat {\vec y} - \bar y\vec 1} \right\rangle \\
+&= RSS + ESS + 2\left\langle {\vec y - \hat {\vec y},\hat {\vec y} - \bar y\vec 1} \right\rangle \\
+&= RSS + ESS + 2\left( {{{\vec y}^T}\hat {\vec y} - {{\hat {\vec y}}^T}\hat {\vec y} - \bar y\left( {{{\vec y}^T}\vec 1 - {{\hat {\vec y}}^T}\vec 1} \right)} \right) \\
 \end{aligned}$$
 
 下面证明当  $\hat{ \vec y}$  是线性估计时,  $TSS = RSS + ESS$  .

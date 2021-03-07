@@ -37,7 +37,10 @@ $$y = \operatorname{sigmoid}(x) = \operatorname{sigmoid}(\operatorname{logit}(y)
 - https://stackoverflow.com/questions/41455101/what-is-the-meaning-of-the-word-logits-in-tensorflow
 - [如何理解深度学习源码里经常出现的logits？](https://www.zhihu.com/question/60751553)
 
-## 版权声明
-版权声明: 自由分享, 保持署名-非商业用途-非衍生, 知识共享3.0协议.
+***
+### **更新记录**
+- 20201016, 发布
+### **版权声明**
+版权声明: 自由分享, 保持署名-非商业用途-非衍生, 知识共享3.0协议.  
+如果你对本文有疑问或建议, 欢迎留言! 转载请保留版权声明!
 
-如果你对本文有疑问或建议, 欢迎留言! 转载请保留版权声明! 

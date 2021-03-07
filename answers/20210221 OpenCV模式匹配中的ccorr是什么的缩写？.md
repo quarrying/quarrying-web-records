@@ -5,7 +5,8 @@
 [comment]: <> (Author Name: 采石工)
 [comment]: <> (Create Time: 2021-02-21 11:49:15)
 
-设待匹配图像为  $I(\vec x)$, 模板图像为 $T(\vec x)$, $\Omega$ 表示模板图像的定义域, 即 $\Omega = {\mathop{\rm dom}\nolimits} T \subseteq {\mathop{\rm dom}\nolimits}I$ . 为了简洁, 下面采用积分和多元函数的形式来列写公式, 二维离散形式的公式可以参考  [1]  (注意两者符号标记有差异). 注: 笔者注的地方是答主的看法, 未必正确, 仅供参考.
+ 
+设待匹配图像为  $I(\vec x)$, 模板图像为 $T(\vec x)$, $\Omega$ 表示模板图像的定义域, 即 $\Omega = \operatorname{dom} T \subseteq \operatorname{dom} I$ . 为了简洁, 下面采用积分和多元函数的形式来列写公式, 二维离散形式的公式可以参考 [[1][]] (注意两者符号标记有差异). 注: 笔者注的地方是答主的看法, 未必正确, 仅供参考.
 
 ##  TM_SQDIFF
 
@@ -54,9 +55,7 @@ $$E\left( {\vec d} \right) = \int_\Omega {\left( {I\left( {\vec x + \vec d}
 \right) - {{\bar I}_{\vec d}}} \right)\left( {T\left( {\vec x} \right) - \bar
 T} \right)d\vec x}$$
 
-其中  $\bar T = \frac{1}{{\left| \Omega \right|}}\int_\Omega {T\left( {\vec x}
-\right)d\vec x}$  和  ${\bar I_{\vec d}} = \frac{1}{{\left| \Omega
-\right|}}\int_\Omega {I\left( {\vec x + \vec d} \right)d\vec x}$  .
+其中  $\bar T = \frac{1}{{\left| \Omega \right|}}\int_\Omega {T\left( {\vec x} \right)d\vec x}$  和  ${\bar I_{\vec d}} = \frac{1}{{\left| \Omega \right|}}\int_\Omega {I\left( {\vec x + \vec d} \right)d\vec x}$  .
 
 ##  TM_CCOEFF_NORMED
 
@@ -69,7 +68,4 @@ $$E\left( {\vec d} \right) = \frac{{\int_\Omega {\left( {I\left( {\vec x +
 \right)\left( {\int_\Omega {{{\left| {T\left( {\vec x} \right) - \bar T}
 \right|}^2}d\vec x} } \right)} }}$$
 
-##  参考
-
-  1. ^  [ https://docs.opencv.org/4.0.1/df/dfb/group__imgproc__object.html ](https://docs.opencv.org/4.0.1/df/dfb/group__imgproc__object.html)
-
+[1]: https://docs.opencv.org/4.0.1/df/dfb/group__imgproc__object.html
