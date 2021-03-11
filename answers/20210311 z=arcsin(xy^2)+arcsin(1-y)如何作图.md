@@ -1,7 +1,6 @@
-#! https://www.zhihu.com/answer/1774815866
+#! https://www.zhihu.com/question/447951837/answer/1774815866
 
-
-[comment]: <> (Answer URL: https://www.zhihu.com/question/396132009/answer/1261546116)
+[comment]: <> (Answer URL: https://www.zhihu.com/question/447951837/answer/1774815866)
 [comment]: <> "Question Title: z=arcsin(x/y^2)+arcsin(1-y)如何作图？"
 [comment]: <> (Author Name: 采石工)
 
