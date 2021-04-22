@@ -15,6 +15,6 @@ A\operatorname{adj}(A)B\operatorname{adj}(A) = \operatorname{adj}(A) AB\operator
 $$
 所以 $\operatorname{adj}(A) B = B \operatorname{adj}(A)$, 得证.
 
-参考:
+## 参考:
 - https://encyclopediaofmath.org/wiki/Adjugate_matrix
 

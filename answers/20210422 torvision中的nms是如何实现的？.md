@@ -8,7 +8,7 @@
 
 不是大佬, 强答一下:
 
-`nms` 函数具体实现在 `$TORCHVISION$/torchvision/csrc/ops/nms.cpp` 文件中, 如下:
+`nms` 函数具体实现在 `<TORCHVISION>/torchvision/csrc/ops/nms.cpp` 文件 (`<TORCHVISION>` 表示 torchvision 的代码路径) 中, 如下:
 ```
 at::Tensor nms(
     const at::Tensor& dets,
@@ -24,12 +24,12 @@ at::Tensor nms(
 
 在 TorchVision 中共有四种 nms 的实现.
 
-- CPU 版本: `$TORCHVISION$/torchvision/csrc/ops/cpu/nms_kernel.cpp`.
-- GPU 版本: `$TORCHVISION$/torchvision/csrc/ops/cuda/nms_kernel.cpp`.
-- 量化的  CPU 版本: `$TORCHVISION$/torchvision/csrc/ops/quantized/cpu/qnms_kernel.cpp`.
-- Autocast 版本: `$TORCHVISION$/torchvision/csrc/ops/autocast/qnms_kernel.cpp`.
+- CPU 版本: `<TORCHVISION>/torchvision/csrc/ops/cpu/nms_kernel.cpp`.
+- GPU 版本: `<TORCHVISION>/torchvision/csrc/ops/cuda/nms_kernel.cpp`.
+- 量化的  CPU 版本: `<TORCHVISION>/torchvision/csrc/ops/quantized/cpu/qnms_kernel.cpp`.
+- Autocast 版本: `<TORCHVISION>/torchvision/csrc/ops/autocast/qnms_kernel.cpp`.
 
-不妨看一下 `$TORCHVISION$/torchvision/csrc/ops/cpu/nms_kernel.cpp` 这个文件, 其中包含了 nms 的实现函数 `nms_kernel`, 同时还有一段代码:
+不妨看一下 `<TORCHVISION>/torchvision/csrc/ops/cpu/nms_kernel.cpp` 这个文件, 其中包含了 nms 的实现函数 `nms_kernel`, 同时还有一段代码:
 ```c++
 TORCH_LIBRARY_IMPL(torchvision, CPU, m) {
   m.impl(TORCH_SELECTIVE_NAME("torchvision::nms"), TORCH_FN(nms_kernel));
