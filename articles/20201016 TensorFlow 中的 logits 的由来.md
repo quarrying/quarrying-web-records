@@ -23,7 +23,7 @@ logistic 函数 (或称 sigmoid 函数. 实际上 S 形曲线的函数都可以�
 $$y = \operatorname{sigmoid}(x) = \frac{1}{1 + \exp(-x)}\\$$
 其可转化为:
 $$x = \log\frac{y}{1 - y}\\$$ 
-其中 $y \in \{-1, 1\}$. 其恰为 logit 函数的定义 (logit 函数是 sigmoid 函数的逆函数), 即:
+其中 $y \in (0, 1)$. 其恰为 logit 函数的定义 (logit 函数是 sigmoid 函数的逆函数), 即:
 $$x = \operatorname{logit}(y)\\$$
 将其代回 $y = \operatorname{sigmoid}(x)$, 可以得到:
 $$y = \operatorname{sigmoid}(x) = \operatorname{sigmoid}(\operatorname{logit}(y)) = \frac{1}{1 + \exp(-\operatorname{logit}(y))}\\$$
@@ -40,7 +40,7 @@ $$y = \operatorname{sigmoid}(x) = \operatorname{sigmoid}(\operatorname{logit}(y)
 ***
 ### **更新记录**
 - 20201016, 发布
+
 ### **版权声明**
-版权声明: 自由分享, 保持署名-非商业用途-非衍生, 知识共享3.0协议.  
-如果你对本文有疑问或建议, 欢迎留言! 转载请保留版权声明!
+保持署名-非商业用途-非衍生, 知识共享3.0协议.  
 
