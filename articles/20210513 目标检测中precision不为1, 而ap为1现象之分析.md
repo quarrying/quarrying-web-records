@@ -15,7 +15,7 @@ def average_precision(recalls, precisions):
     return ap
 ```
 
-来看一个下面的 recalls 和 precisions (简单起见, 不妨分别视作 mrec 和 mprec) : 
+来看一个下面的 recalls 和 precisions (简单起见, 不妨将其等效于上面代码中的 mrec 和 mpre) : 
 ```
 recalls = [0.03846154, 0.07692308, 0.11538462, 0.15384615, 0.19230769, 0.23076923,
            0.26923077, 0.30769231, 0.34615385, 0.38461538, 0.42307692, 0.46153846,
