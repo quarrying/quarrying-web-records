@@ -1,6 +1,6 @@
 #! https://zhuanlan.zhihu.com/p/374269641
 
-# Numpy 之实现 find_topk
+# NumPy 之实现 find_topk
 返回数组中的前 K 个最大或最小的元素在现实中有着广泛的应用, 如推荐系统中返回 TopK 推荐商品, ImageNet 数据集评估中的 Top5 准确率的计算. 在不少代码框架中都有该功能的实现, 如 TensorFlow 中的 `tf.math.top_k`, PyTorch 中的 `torch.topk`. 笔者搜索了一圈, 发现 NumPy 中竟然没有此功能的函数. 但搜到了一些热心网友的实现, 如: [用numpy实现topk函数（并排序）](https://blog.csdn.net/SoftPoeter/article/details/86629329 ) 等. 这些非官方实现一般都只支持二维数组 (当然对于大部分应用已经够用了), 笔者拟进一步, 实现更通用的版本: 多维数组任意维度上的 topk 元素查找. 参考代码如下
 
 
