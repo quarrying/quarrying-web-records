@@ -1,0 +1,13 @@
+今天 review 之前写的代码, 定位一处疑似 bug: `cv2.cvtColor(image, cv2.COLOR_BGR2RGB)` 没有保证 `image` 为三通道图像 (因为从 `cv2.COLOR_BGR2RGB` 的字面义来看, image 需为三通道图像). 可经测试, 传入单通道图像, 这段代码也能正常执行, 也就是说不存在 bug. 遂写了下面的测试代码, 发现如果 `image` 是单通道图像, `cv2.COLOR_BGR2RGB` (及 `cv2.COLOR_RGB2BGR`) 和 `cv2.COLOR_GRAY2RGB` 的作用是等效的, 不知道这是 OpenCV 有意为之的特性, 还是 OpenCV 的小 bug.
+```python
+import cv2
+import numpy as np
+
+image = np.random.uniform(0, 255, size=(512, 512)).astype(np.uint8)
+color_1 = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+color_2 = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
+color_3 = cv2.cvtColor(image, cv2.COLOR_GRAY2RGB)
+
+print(np.allclose(color_1, color_3))
+print(np.allclose(color_2, color_3))
+```
