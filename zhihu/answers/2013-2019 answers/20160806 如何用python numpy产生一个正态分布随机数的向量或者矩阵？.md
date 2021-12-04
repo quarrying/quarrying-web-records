@@ -5,45 +5,74 @@
 [comment]: <> (Author Name: 采石工)
 [comment]: <> (Create Time: 2016-08-06 01:05:12)
 
-一般的正态分布可以通过标准正态分布配合数学期望向量和协方差矩阵得到。如下代码，可以得到满足一维和二维正态分布的样本。希望有用，如有错误，欢迎指正！  
+感谢 [@漠漠上寒](https://www.zhihu.com/people/guo-yong-zhi-24-48) 指出原回答的错误, 特此更新一次答案.
 
-    
+先引入一些有用的数学结论:
+
+若 $X \sim N(\mu, \sigma^2)$, $Y = a X + d$, 则 $Y \sim N(a\mu + d, d^2\sigma^2)$
+
+若 $\vec{X} \sim N(\vec{\mu}, \Sigma)$, $\vec{Y} = A \vec{X} + \vec{d}$, 则 $\vec{Y} \sim N(A\vec{\mu} + \vec{d}, A \Sigma A^T)$.
+
+特别地,
+
+若 $X \sim N(0, 1)$, $Y = \mu X + \sigma$, 则 $Y \sim N(\mu, \sigma^2)$
+
+若 $\vec{X} \sim N(\vec{0}, I)$, $\vec{Y} = L \vec{X} + \vec{\mu}$, 则 $\vec{Y} \sim N(\vec{\mu}, L L^T)$.
+
+在 NumPy 中可以:
+1) 直接使用 `np.random.normal` 生成一组符合一维正态分布的标量; 直接使用 `np.random.multivariate_normal` 生成一组符合一维或多维正态分布的向量.
+2) 先用 `np.random.randn` (或 `np.random.standard_normal`) 生成一组符合一维或多维的标准正态分布的标量或向量, 再利用上面的结论.
+
+## 测试代码
 ```python
 import numpy as np
-from numpy.linalg import cholesky
 import matplotlib.pyplot as plt
 
-sampleNo = 1000;
-# 一维正态分布
-# 下面三种方式是等效的
-mu = 3
-sigma = 0.1
-np.random.seed(0)
-s = np.random.normal(mu, sigma, sampleNo )
-plt.subplot(141)
-plt.hist(s, 30, normed=True)
 
-np.random.seed(0)
-s = sigma * np.random.randn(sampleNo ) + mu
-plt.subplot(142)
-plt.hist(s, 30, normed=True)
+def verify_mu_and_cov(mu, cov, x):
+    print('mu_true: {}'.format(mu))
+    print('mu_calc: {}'.format(np.mean(x, axis=0)))
+    print('Sigma_true: \n{}'.format(cov))
+    print('Sigma_calc: \n{}'.format(np.cov(x, rowvar=False, ddof=0)))
+    print('Sigma_calc: \n{}'.format(np.cov(x, rowvar=False, ddof=1)))
+    print('=======================')
+    
 
-np.random.seed(0)
-s = sigma * np.random.standard_normal(sampleNo ) + mu
-plt.subplot(143)
-plt.hist(s, 30, normed=True)
+if __name__ == '__main__':
+    num_samples = 1000
 
-# 二维正态分布
-mu = np.array([[1, 5]])
-Sigma = np.array([[1, 0.5], [1.5, 3]])
-R = cholesky(Sigma)
-s = np.dot(np.random.randn(sampleNo, 2), R) + mu
-plt.subplot(144)
-# 注意绘制的是散点图，而不是直方图
-plt.plot(s[:,0],s[:,1],'+')
-plt.show()
+    # 一维正态分布, 绘制直方图
+    mu = 3
+    sigma = 0.1
+
+    x = np.random.normal(mu, sigma, num_samples)
+    verify_mu_and_cov(mu, sigma**2, x)
+    plt.subplot(121)
+    plt.hist(x, 30, histtype='step', density=True)
+    x = sigma * np.random.randn(num_samples) + mu
+    verify_mu_and_cov(mu, sigma**2, x)
+    plt.hist(x, 30, histtype='step', density=True)
+
+    # 二维正态分布, 绘制散点图
+    mu = np.array([1, 5])
+    Sigma = np.array([[1, 0.5], [1.5, 3]]) # 需为半正定矩阵
+    Sigma = 0.5 * (Sigma + Sigma.T)        # 使之成为对称阵
+    L = np.linalg.cholesky(Sigma)          # Sigma = L*L^T
+
+    x = np.random.multivariate_normal(mu, Sigma, num_samples)
+    verify_mu_and_cov(mu, Sigma, x)
+    plt.subplot(122)
+    plt.plot(x[:,0], x[:,1], '+')
+    x = np.dot(np.random.randn(num_samples, 2), L.T) + mu
+    verify_mu_and_cov(mu, Sigma, x)
+    plt.plot(x[:,0], x[:,1], '+')
+    plt.show()
 ```
+显示图形:
 
-  
-![](https://pic4.zhimg.com/50/3275aace2c66dcc10d91a1bccb89aa71_hd.jpg?source=1940ef5c)
+![一维和二维正态分布](https://pic4.zhimg.com/80/v2-9fd730d02ed4e1afa1a4d5c1ec014bc1.png)
+
+----
+- 20160806 发布答案
+- 20211202 修改答案
 
