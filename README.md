@@ -1,3 +1,5 @@
 # 概述
-管理知乎上的回答和文章. 知乎主页为: <https://www.zhihu.com/people/quarrying>.
+各网站平台上的相关记录. 
 
+- [zhihu](zhihu): [知乎](https://www.zhihu.com/people/quarrying) 上的回答和文章备份.
+- [quarryman.cn](quarryman.cn): [个人站点](https://www.quarryman.cn) 上的文章备份.
