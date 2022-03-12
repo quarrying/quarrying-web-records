@@ -1,4 +1,5 @@
 #! https://zhuanlan.zhihu.com/p/354129213
+
 # 三维空间下的 Rodrigues 旋转公式
 $\vec v$ 按照右手法则绕单位向量 $\vec k$ 旋转 $\theta$ 后的向量记为 $\vec v_{\text{rot}}$, 有: 
 $$\begin{aligned}
